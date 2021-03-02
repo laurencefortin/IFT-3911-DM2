@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+   <head>
+      <title>IFT3901 DM1 Syriani</title>
+      <style>
+         table
+         {
+         border: outset 2px black;
+         border-collapse: collapse;
+         }
+         th
+         {
+         border-bottom: double 2px black;
+         }
+         td
+         {
+         border-bottom: solid 1px black;
+         }
+         .first_col
+         {
+         border-right: double 2px black;
+         }
+      </style>
+   </head>
+   <body>
+      <h1 style="text-align: center;">
+         IFT 3911 - DM1
+      </h1>
+      <h2>
+         Information générale
+      </h2>
+      <p>
+         <span style="font-weight: bold;">Nom: </span>Francis Boudreau
+         <br />
+         <span style="font-weight: bold;">Matricule: </span>20124218
+         <br />
+         <span style="font-weight: bold;">Courriel: </span>frnacis.boudreau.2@umontreal.ca
+         <br />
+         <span style="font-weight: bold;">Temps mis: </span>15 heures
+      </p>
+      <p>
+         <span style="font-weight: bold;">Nom: </span>Laurence Fortin
+         <br />
+         <span style="font-weight: bold;">Matricule: </span>20088891
+         <br />
+         <span style="font-weight: bold;">Courriel: </span>laurence.fortin.3@umontreal.ca
+         <br />
+         <span style="font-weight: bold;">Temps mis: </span>15 heures
+      </p>
+      <p>
+         <span style="font-weight: bold;">Nom: </span>Julien Lanctot
+         <br />
+         <span style="font-weight: bold;">Matricule: </span>20140970
+         <br />
+         <span style="font-weight: bold;">Courriel: </span>julien.lanctot@umontreal.ca
+         <br />
+         <span style="font-weight: bold;">Temps mis: </span>15 heures
+      </p>
+      <h2>
+         Distribution des tâches
+      </h2>
+      <p>
+         <span style="font-weight: bold;">Soumetteur: </span>Laurence Fortin
+      </p>
+      <table cellpadding=7>
+         <thead>
+            <tr>
+               <th class="first_col">
+                  Tâche
+               </th>
+               <th>
+                  Francis
+               </th>
+               <th>
+                  Laurence
+               </th>
+               <th>
+                  Julien
+               </th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td class="first_col">
+                  Diagramme classe conceptuelle
+               </td>
+               <td>
+                  10% (vérification)
+               </td>
+               <td>
+                  80% (rédaction)
+               </td>
+               <td>
+                  10% (vérification)
+               </td>
+            </tr>
+            <tr>
+               <td class="first_col">
+                  DSS
+               </td>
+               <td>
+                  33% (confirmation)
+               </td>
+               <td>
+                  33% (rechercher)
+               </td>
+               <td>
+                  33% (reservation) 
+               </td>
+            </tr>
+            <tr>
+               <td class="first_col">
+                  Diagramme de classe
+               <td>
+                  40% (rédaction)
+               </td>
+               <td>
+                  20% (finalisation)
+               </td>
+               <td>
+                  40% (rédaction)
+               </td>
+            </tr>
+            <tr>
+               <td class="first_col">
+                  Diagramme de séquence ou collaboration
+              <td>
+                  33% (confirmation)
+               </td>
+               <td>
+                  33% (rechercher)
+               </td>
+               <td>
+                  33% (reservation) 
+               </td>
+            </tr>
+            <tr>
+               <td class="first_col">
+                  Diagramme de paquets
+                <td>
+                  50% 
+               </td>
+               <td>
+                  25% 
+               </td>
+               <td>
+                  25% 
+               </td>
+            </tr>
+            <tr>
+               <td class="first_col">
+                  Contrainte OCL
+               </td>
+                 <td>
+                  30% 
+               </td>
+               <td>
+                  35%
+               </td>
+               <td>
+                  35% 
+               </td>
+            </tr>
+            <tr>
+               <td class="first_col">
+                  Justification
+                 <td>
+                  33% (rédaction)
+               </td>
+               <td>
+                  33% (rédaction + révision)
+               </td>
+               <td>
+                  33% (rédaction)
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <h2>Hypothèses</h2>
+     
+      <ul>
+         <li>
+            <strong>Général</strong>  
+            <ul>
+               <li>Pour les consultations, les clients peuvent seulement chercher par aéroport/port/gare</li>
+               <li>Pour les consultations des administrateurs, il est possible de chercher par aéroport/port/gare mais également par compagnie.</li>
+               <li>Quand on arrive au menu, on choisi le type de voyage qu'on cherche pour ensuite choisir l'aéroport/port/gare pour finalement selectioner les autres critères</li>
+               <li>En se qui concerne le menu, il retourne une liste du choix prédéfini.</li>
+               <li>Même si les voyages férroviaires et aérien sont hautement similaire en terme de verification, on sépare quand même le menu en 2 sections comme le voyageur connait ses préférences. </li>
+               <li>Réservation de siège avec préférences est une classe</li>
+               <li>Pour des raisons éthiques, le systeme ne mémorise jamais les numéros de carte de crédit pour usage future.</li>
+               <li>Quand l'administeur recherche par compagnie, il doit choisir un choix du menu : Création, Modification, Supression</li>
+            </ul>
+         </li>
+         <li>
+            <strong>Voyage aérien:</strong>  
+            <ul>
+               <li>Les sections des avions vont toujours être celles-ci :Première (F), Affaire (A), Économique Premium (P), Économique (E) </li>
+               <li>Une section est une classe</li>
+               <li>On affiche le nombre de siège disponible par section, dans un monde idéal, on affiche le layout de l'avion pour que l'utilisateur choisi le siege désiré</li>
+               <li>Il y a pas de limite dans les avions, quand on crer un vol l'aeroport associé s'assure de fournir un avion pour ce dit vol.</li>
+            </ul>
+         </li>
+        
+         <li>
+            <strong>Voyage naval:</strong>  
+            <ul>
+               <li>On assume que 1 cabine = 1 personne donc 1 réservation</li>
+               <li>Une section est une classe</li>
+               <li>Le port d'origine est le même que le port d'arrivé, c'est-à-dire qu'il n'y a pas de destination dans la recherche</li>
+            </ul>
+         </li>
+         <li>
+            <strong>Voyage ferroviaire:</strong>  
+            <ul>
+               <li>Une ligne de train est une compagnie</li>
+               <li>Un trajet est un itinéraire</li>
+            </ul>
+         </li>
+      </ul>
+    
+      <h1>Modèle de conception du domaine</h1>
+      <h2>
+         Diagramme de classe conceptuelle
+      </h2>
+      <img src="./Domaine/diagrammeClasseConceptuelle.jpg"  alt="diagramme_classe_concept" /><br><br>
+      Voici un <a href="./Domaine/TP1_UML_conceptuelle.vpp">lien</a> vers le fichier vpp du diagramme.
+      <h2>Diagramme de séquence systeme</h2>
+      <h3>Recherche</h3>
+      <img src="./Domaine/RechercherDSS.jpg"  alt="DSS_rechercher" /><br><br>
+      Voici un <a href="./Domaine/RechercherDSS.vpp">lien</a> vers le fichier vpp du diagramme.
+      <h3>Reservation</h3>
+      <img src="./Domaine/ReservationDSS.jpg"  alt="DSS_reservation" /><br><br>
+      Voici un <a href="./Domaine/ReservationDSS.vpp">lien</a> vers le fichier vpp du diagramme.
+      <h3>Confirmation</h3>
+      <img src="./Domaine/ConfirmationDSS.jpg"  alt="DSS_confirmation" /><br><br>
+      Voici un <a href="./Domaine/ConfirmationDSS.vpp">lien</a> vers le fichier vpp du diagramme.
+      <h1>Design logiciel</h1>
+      <h2>Diagramme de classe</h2>
+      <img src="./Design/diagrammeClasse.jpg"  alt="diagramme_classe_concept" /><br><br>
+      Voici un <a href="./Domaine/TP1_UML_classe.vpp">lien</a> vers le fichier vpp du diagramme.
+      <h2>Diagramme de séquence ou de collaboration</h2>
+      <h3>Recherche</h3>
+      <img src="./Design/Rechercher.jpg"  alt="Diagramme_sequence_rechercher" /><br><br>
+      Voici un <a href="./Domaine/Rechercher.vpp">lien</a> vers le fichier vpp du diagramme.
+      <h3>Reservation</h3>
+      <img src="./Design/Reserver.jpg"  alt="Diagramme_sequence_reservation" /><br><br>
+      Voici un <a href="./Domaine/Reserer.vpp">lien</a> vers le fichier vpp du diagramme.
+      <h3>Confirmation</h3>
+      <img src="./Design/Confirmation.jpg"  alt="Diagramme_sequence_confirmation" /><br><br>
+      Voici un <a href="./Domaine/Confirmation.vpp">lien</a> vers le fichier vpp du diagramme.
+      <h2>Diagramme de paquets</h2>
+      <img src="./Design/paquets.jpg"  alt="diagramme_paquets" /><br><br>
+      Voici un <a href="./Domaine/paquets.vpp">lien</a> vers le fichier vpp du diagramme.
+      <h2>Contraintes OCL</h2>
+	  
+      <p> <strong>Context Compagnie</strong><br>
+	inv: Compagnie.allInstances()->forAll(a1,a2|a1<>a2 implies a1.id <> a2.id)<br>
+	inv: self.id.Length() < 6 <br><br>
+
+<strong>Context Voyage</strong><br>
+inv: self.DateDepart < self.DateArrivee<br>
+inv: self.HeureDepart < self.HeureArrivee<br><br>
+
+<strong>Context Vol</strong><br>
+inv: Vol.allInstances()->forAll(b1,b2|b1<>b2 implies b1.id <> b2.id)<br>
+inv: self.EndroitDepart <> self.EndroitArrivee<br><br>
+
+<strong>Context Avion</strong><br>
+inv: self.rangee <= 100<br>
+inv: self.colonne <= 10<br><br>
+
+<strong>Context Port </strong><br>
+inv: Port.allInstances()->forAll(c1,c2|c1<>c2 implies c1.id <> c2.id)<br><br>
+
+<strong>Context Siege</strong><br>
+
+inv: Siege.allInstances()->forAll(c1,c2|c1.section = c2.section implies c1.taux = c2.taux)<br>
+inv: Siege.paid  and Siege.contains(Reservation) implies siege.contains(Confirmation)<br>
+Context Siege::reserver(a : client)<br>
+pre: self.contains(Reservation) -> excludes(a)<br>
+post : reserver(a) implies self.contains(Reservation)<br>
+Context siege::confirmer(a : client)<br>
+pre: not(self.contains(Reservation ) and self.Reservation.Contains(a)) -> excludes(a)<br>
+post : self.contains(Confirmation) and self.Confirmation.Contains(a)<br><br>
+
+<strong>Context Gare </strong><br>
+inv: Gare.allInstances()->forAll(d1,d2|d1<>d2 implies d1.id <> d2.id)<br><br>
+
+<strong>Context Croisiere</strong><br>
+inv: (self.DateArrivee - self.DateDepart) < 21<br>
+inv: self.ArraylistPort.Last() = self.EndroitDepart<br><br>
+
+<strong>Context Paquebot</strong><br>
+inv: Paquebot.allInstances()->forAll(e1,e2|e1<>e2 implies checkNoConflict(e1.ListCroisiere,e2.ListCroisiere))<br>
+
+</p>
+      <h2>Justification</h2>
+      <p>
+	  1. Nous avons séparé Vol/Itinéraire/Croisiere puisqu'ils sont très similaire mais conserve des différences notables du au mode de transport différent.
+	  <br>
+	  2. Puisque les recherches se font par compagnie et aeroport/gare/port, nous avons décidé de stocker les voyage séparément dans chaque objet dans une liste de voyage.
+	  <br>
+	  3. Pour s'assurer que la confirmation est faite sur le bon siège, on conserve la réservation courante dans l'objet Siege, et le l'objet client dans la réservation.
+	  <br>
+	  4. Notre Classe Système est associée(donc couplée) avec toute nos autres classes, mais par souci de clarté, nous n'avons pas mis aucun lien avec les autres classes.
+	  <br>
+	  5. Pour empêcher la double réservation d'un siège, nous avons choisi de conserver un objet réservation dans le siège et de vérifier avant la réservation qu'il n'en contient pas déja un.
+	  <br>
+	  6. Pour rechercher, notre système offre deux menus principaux, un pour les administrateurs et un autre pour les clients. Bien qu'ils semblent similaires, ils offrent des types de recherches différents.
+	  </p>
+   </body>
+</html>

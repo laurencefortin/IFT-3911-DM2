@@ -27,7 +27,7 @@
          IFT 3911 - DM1
       </h1>
       <h2>
-         Information générale
+         Information gÃ©nÃ©rale
       </h2>
       <p>
          <span style="font-weight: bold;">Nom: </span>Francis Boudreau
@@ -57,7 +57,7 @@
          <span style="font-weight: bold;">Temps mis: </span>15 heures
       </p>
       <h2>
-         Distribution des tâches
+         Distribution des tÃ¢ches
       </h2>
       <p>
          <span style="font-weight: bold;">Soumetteur: </span>Laurence Fortin
@@ -66,7 +66,7 @@
          <thead>
             <tr>
                <th class="first_col">
-                  Tâche
+                  TÃ¢ches
                </th>
                <th>
                   Francis
@@ -82,232 +82,140 @@
          <tbody>
             <tr>
                <td class="first_col">
-                  Diagramme classe conceptuelle
+                  RÃ©seau de PÃ©tri
                </td>
                <td>
-                  10% (vérification)
+
                </td>
                <td>
-                  80% (rédaction)
+
                </td>
                <td>
-                  10% (vérification)
+
                </td>
             </tr>
             <tr>
                <td class="first_col">
-                  DSS
+                  Statechart
                </td>
                <td>
-                  33% (confirmation)
+
                </td>
                <td>
-                  33% (rechercher)
+
                </td>
                <td>
-                  33% (reservation) 
+
                </td>
             </tr>
             <tr>
                <td class="first_col">
-                  Diagramme de classe
+                  Design logiciel
                <td>
-                  40% (rédaction)
+
                </td>
                <td>
-                  20% (finalisation)
+
                </td>
                <td>
-                  40% (rédaction)
+
                </td>
             </tr>
             <tr>
                <td class="first_col">
-                  Diagramme de séquence ou collaboration
+                  QualitÃ© du design
               <td>
-                  33% (confirmation)
+
                </td>
                <td>
-                  33% (rechercher)
+
                </td>
                <td>
-                  33% (reservation) 
-               </td>
-            </tr>
-            <tr>
-               <td class="first_col">
-                  Diagramme de paquets
-                <td>
-                  50% 
-               </td>
-               <td>
-                  25% 
-               </td>
-               <td>
-                  25% 
-               </td>
-            </tr>
-            <tr>
-               <td class="first_col">
-                  Contrainte OCL
-               </td>
-                 <td>
-                  30% 
-               </td>
-               <td>
-                  35%
-               </td>
-               <td>
-                  35% 
-               </td>
-            </tr>
-            <tr>
-               <td class="first_col">
-                  Justification
-                 <td>
-                  33% (rédaction)
-               </td>
-               <td>
-                  33% (rédaction + révision)
-               </td>
-               <td>
-                  33% (rédaction)
+
                </td>
             </tr>
          </tbody>
       </table>
-      <h2>Hypothèses</h2>
-     
-      <ul>
-         <li>
-            <strong>Général</strong>  
-            <ul>
-               <li>Pour les consultations, les clients peuvent seulement chercher par aéroport/port/gare</li>
-               <li>Pour les consultations des administrateurs, il est possible de chercher par aéroport/port/gare mais également par compagnie.</li>
-               <li>Quand on arrive au menu, on choisi le type de voyage qu'on cherche pour ensuite choisir l'aéroport/port/gare pour finalement selectioner les autres critères</li>
-               <li>En se qui concerne le menu, il retourne une liste du choix prédéfini.</li>
-               <li>Même si les voyages férroviaires et aérien sont hautement similaire en terme de verification, on sépare quand même le menu en 2 sections comme le voyageur connait ses préférences. </li>
-               <li>Réservation de siège avec préférences est une classe</li>
-               <li>Pour des raisons éthiques, le systeme ne mémorise jamais les numéros de carte de crédit pour usage future.</li>
-               <li>Quand l'administeur recherche par compagnie, il doit choisir un choix du menu : Création, Modification, Supression</li>
-            </ul>
-         </li>
-         <li>
-            <strong>Voyage aérien:</strong>  
-            <ul>
-               <li>Les sections des avions vont toujours être celles-ci :Première (F), Affaire (A), Économique Premium (P), Économique (E) </li>
-               <li>Une section est une classe</li>
-               <li>On affiche le nombre de siège disponible par section, dans un monde idéal, on affiche le layout de l'avion pour que l'utilisateur choisi le siege désiré</li>
-               <li>Il y a pas de limite dans les avions, quand on crer un vol l'aeroport associé s'assure de fournir un avion pour ce dit vol.</li>
-            </ul>
-         </li>
-        
-         <li>
-            <strong>Voyage naval:</strong>  
-            <ul>
-               <li>On assume que 1 cabine = 1 personne donc 1 réservation</li>
-               <li>Une section est une classe</li>
-               <li>Le port d'origine est le même que le port d'arrivé, c'est-à-dire qu'il n'y a pas de destination dans la recherche</li>
-            </ul>
-         </li>
-         <li>
-            <strong>Voyage ferroviaire:</strong>  
-            <ul>
-               <li>Une ligne de train est une compagnie</li>
-               <li>Un trajet est un itinéraire</li>
-            </ul>
-         </li>
-      </ul>
-    
-      <h1>Modèle de conception du domaine</h1>
+
+  <h1>HypothÃ¨ses</h1>
+
+
+      <h1>RÃ©seau de PÃ©tri</h1>
       <h2>
-         Diagramme de classe conceptuelle
+         ModÃ©lisation du rÃ©seau de PÃ©tri
       </h2>
       <img src="./Domaine/diagrammeClasseConceptuelle.jpg"  alt="diagramme_classe_concept" /><br><br>
       Voici un <a href="./Domaine/TP1_UML_conceptuelle.vpp">lien</a> vers le fichier vpp du diagramme.
-      <h2>Diagramme de séquence systeme</h2>
-      <h3>Recherche</h3>
-      <img src="./Domaine/RechercherDSS.jpg"  alt="DSS_rechercher" /><br><br>
-      Voici un <a href="./Domaine/RechercherDSS.vpp">lien</a> vers le fichier vpp du diagramme.
-      <h3>Reservation</h3>
-      <img src="./Domaine/ReservationDSS.jpg"  alt="DSS_reservation" /><br><br>
-      Voici un <a href="./Domaine/ReservationDSS.vpp">lien</a> vers le fichier vpp du diagramme.
-      <h3>Confirmation</h3>
-      <img src="./Domaine/ConfirmationDSS.jpg"  alt="DSS_confirmation" /><br><br>
-      Voici un <a href="./Domaine/ConfirmationDSS.vpp">lien</a> vers le fichier vpp du diagramme.
+      <h2>Analise du rÃ©seau de PÃ©tri</h2>
+
+
+      <h1>Statechart</h1>
+      <h2>
+         ModÃ©lisation du Statechart
+      </h2>
+      <h2> GÃ©nÃ©ration du code et application fonctionnelle </h2>
+
       <h1>Design logiciel</h1>
-      <h2>Diagramme de classe</h2>
-      <img src="./Design/diagrammeClasse.jpg"  alt="diagramme_classe_concept" /><br><br>
-      Voici un <a href="./Domaine/TP1_UML_classe.vpp">lien</a> vers le fichier vpp du diagramme.
-      <h2>Diagramme de séquence ou de collaboration</h2>
-      <h3>Recherche</h3>
-      <img src="./Design/Rechercher.jpg"  alt="Diagramme_sequence_rechercher" /><br><br>
-      Voici un <a href="./Domaine/Rechercher.vpp">lien</a> vers le fichier vpp du diagramme.
-      <h3>Reservation</h3>
-      <img src="./Design/Reserver.jpg"  alt="Diagramme_sequence_reservation" /><br><br>
-      Voici un <a href="./Domaine/Reserer.vpp">lien</a> vers le fichier vpp du diagramme.
-      <h3>Confirmation</h3>
-      <img src="./Design/Confirmation.jpg"  alt="Diagramme_sequence_confirmation" /><br><br>
-      Voici un <a href="./Domaine/Confirmation.vpp">lien</a> vers le fichier vpp du diagramme.
-      <h2>Diagramme de paquets</h2>
-      <img src="./Design/paquets.jpg"  alt="diagramme_paquets" /><br><br>
-      Voici un <a href="./Domaine/paquets.vpp">lien</a> vers le fichier vpp du diagramme.
-      <h2>Contraintes OCL</h2>
-	  
-      <p> <strong>Context Compagnie</strong><br>
-	inv: Compagnie.allInstances()->forAll(a1,a2|a1<>a2 implies a1.id <> a2.id)<br>
-	inv: self.id.Length() < 6 <br><br>
+      <h2> RÃ©vision du diagramme de classe</h2>
 
-<strong>Context Voyage</strong><br>
-inv: self.DateDepart < self.DateArrivee<br>
-inv: self.HeureDepart < self.HeureArrivee<br><br>
+      <h2>RÃ©vision des diagrammes de sÃ©quence ou de collaboration </h2>
 
-<strong>Context Vol</strong><br>
-inv: Vol.allInstances()->forAll(b1,b2|b1<>b2 implies b1.id <> b2.id)<br>
-inv: self.EndroitDepart <> self.EndroitArrivee<br><br>
+      <h2>RÃ©vision du diagramme de paquets</h2>
 
-<strong>Context Avion</strong><br>
-inv: self.rangee <= 100<br>
-inv: self.colonne <= 10<br><br>
+      <h2>RÃ©vision des contraintes OCL</h2>
+      <h3> Contraintes du DM1</h3>
+            <p> <strong>Context Compagnie</strong><br>
+      	inv: Compagnie.allInstances()->forAll(a1,a2|a1<>a2 implies a1.id <> a2.id)<br>
+      	inv: self.id.Length() < 6 <br><br>
 
-<strong>Context Port </strong><br>
-inv: Port.allInstances()->forAll(c1,c2|c1<>c2 implies c1.id <> c2.id)<br><br>
+      <strong>Context Voyage</strong><br>
+      inv: self.DateDepart < self.DateArrivee<br>
+      inv: self.HeureDepart < self.HeureArrivee<br><br>
 
-<strong>Context Siege</strong><br>
+      <strong>Context Vol</strong><br>
+      inv: Vol.allInstances()->forAll(b1,b2|b1<>b2 implies b1.id <> b2.id)<br>
+      inv: self.EndroitDepart <> self.EndroitArrivee<br><br>
 
-inv: Siege.allInstances()->forAll(c1,c2|c1.section = c2.section implies c1.taux = c2.taux)<br>
-inv: Siege.paid  and Siege.contains(Reservation) implies siege.contains(Confirmation)<br>
-Context Siege::reserver(a : client)<br>
-pre: self.contains(Reservation) -> excludes(a)<br>
-post : reserver(a) implies self.contains(Reservation)<br>
-Context siege::confirmer(a : client)<br>
-pre: not(self.contains(Reservation ) and self.Reservation.Contains(a)) -> excludes(a)<br>
-post : self.contains(Confirmation) and self.Confirmation.Contains(a)<br><br>
+      <strong>Context Avion</strong><br>
+      inv: self.rangee <= 100<br>
+      inv: self.colonne <= 10<br><br>
 
-<strong>Context Gare </strong><br>
-inv: Gare.allInstances()->forAll(d1,d2|d1<>d2 implies d1.id <> d2.id)<br><br>
+      <strong>Context Port </strong><br>
+      inv: Port.allInstances()->forAll(c1,c2|c1<>c2 implies c1.id <> c2.id)<br><br>
 
-<strong>Context Croisiere</strong><br>
-inv: (self.DateArrivee - self.DateDepart) < 21<br>
-inv: self.ArraylistPort.Last() = self.EndroitDepart<br><br>
+      <strong>Context Siege</strong><br>
 
-<strong>Context Paquebot</strong><br>
-inv: Paquebot.allInstances()->forAll(e1,e2|e1<>e2 implies checkNoConflict(e1.ListCroisiere,e2.ListCroisiere))<br>
+      inv: Siege.allInstances()->forAll(c1,c2|c1.section = c2.section implies c1.taux = c2.taux)<br>
+      inv: Siege.paid  and Siege.contains(Reservation) implies siege.contains(Confirmation)<br>
+      Context Siege::reserver(a : client)<br>
+      pre: self.contains(Reservation) -> excludes(a)<br>
+      post : reserver(a) implies self.contains(Reservation)<br>
+      Context siege::confirmer(a : client)<br>
+      pre: not(self.contains(Reservation ) and self.Reservation.Contains(a)) -> excludes(a)<br>
+      post : self.contains(Confirmation) and self.Confirmation.Contains(a)<br><br>
 
-</p>
-      <h2>Justification</h2>
-      <p>
-	  1. Nous avons séparé Vol/Itinéraire/Croisiere puisqu'ils sont très similaire mais conserve des différences notables du au mode de transport différent.
-	  <br>
-	  2. Puisque les recherches se font par compagnie et aeroport/gare/port, nous avons décidé de stocker les voyage séparément dans chaque objet dans une liste de voyage.
-	  <br>
-	  3. Pour s'assurer que la confirmation est faite sur le bon siège, on conserve la réservation courante dans l'objet Siege, et le l'objet client dans la réservation.
-	  <br>
-	  4. Notre Classe Système est associée(donc couplée) avec toute nos autres classes, mais par souci de clarté, nous n'avons pas mis aucun lien avec les autres classes.
-	  <br>
-	  5. Pour empêcher la double réservation d'un siège, nous avons choisi de conserver un objet réservation dans le siège et de vérifier avant la réservation qu'il n'en contient pas déja un.
-	  <br>
-	  6. Pour rechercher, notre système offre deux menus principaux, un pour les administrateurs et un autre pour les clients. Bien qu'ils semblent similaires, ils offrent des types de recherches différents.
-	  </p>
+      <strong>Context Gare </strong><br>
+      inv: Gare.allInstances()->forAll(d1,d2|d1<>d2 implies d1.id <> d2.id)<br><br>
+
+      <strong>Context Croisiere</strong><br>
+      inv: (self.DateArrivee - self.DateDepart) < 21<br>
+      inv: self.ArraylistPort.Last() = self.EndroitDepart<br><br>
+
+      <strong>Context Paquebot</strong><br>
+      inv: Paquebot.allInstances()->forAll(e1,e2|e1<>e2 implies checkNoConflict(e1.ListCroisiere,e2.ListCroisiere))<br>
+
+      </p>
+      <h2>Identification des modules rÃ©utilisables</h2>
+
+
+      <h1>QualitÃ© du design</h1>
+      <h2>Discussion du couplage et de la cohÃ©sion des modules </h2>
+
+      <h2> Discussion du fardeau des classes </h2>
+
+      <h2>Graphe IA et justification</h2>
+
+      <h2>Justification de l'application des principes de conception</h2>
+
    </body>
 </html>

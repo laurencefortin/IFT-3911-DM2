@@ -1,0 +1,18 @@
+GeneratorModel for yakindu::java {
+
+	const PROJECT : string = "Microwave"
+
+
+	statechart microwave {
+
+		feature Outlet {
+			targetProject = PROJECT
+			targetFolder = "src"
+			libraryTargetFolder = "src"
+		}
+		feature GeneralFeatures {
+			RuntimeService = true
+			TimerService = true
+		}
+	}
+}

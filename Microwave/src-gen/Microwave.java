@@ -14,6 +14,7 @@ public class Microwave implements IStatemachine, ITimed {
 		MICRO_ONDE_MAIN_PUISSANCE_R1_PUISSANCE_HIGH,
 		MICRO_ONDE_MAIN_PUISSANCE_PORTE_PORTE_FERMEE,
 		MICRO_ONDE_MAIN_PUISSANCE_PORTE_PORTE_OUVERTE,
+		MICRO_ONDE_MAIN_PUISSANCE_PORTE_INIT_PORTE,
 		MICRO_ONDE_MAIN_TIMER,
 		MICRO_ONDE_MAIN_TIMER_R2_INIT_TIMER,
 		MICRO_ONDE_MAIN_TIMER_R2_TIMER_READY,
@@ -23,6 +24,7 @@ public class Microwave implements IStatemachine, ITimed {
 		MICRO_ONDE_MAIN_TIMER_R2__4_DIGIT,
 		MICRO_ONDE_MAIN_TIMER_PORTE_PORTE_FERMEE,
 		MICRO_ONDE_MAIN_TIMER_PORTE_PORTE_OUVERTE,
+		MICRO_ONDE_MAIN_TIMER_PORTE_INIT_PORTE,
 		MICRO_ONDE_MAIN_CUISSON,
 		MICRO_ONDE_MAIN_CUISSON_R3_INIT_CUISSON,
 		MICRO_ONDE_MAIN_CUISSON_R3_CUISSON_ON_GOING,
@@ -34,6 +36,7 @@ public class Microwave implements IStatemachine, ITimed {
 		MICRO_ONDE_MAIN_CUISSON_R3__FINAL_,
 		MICRO_ONDE_MAIN_CUISSON_PORTE_PORTE_FERMEE,
 		MICRO_ONDE_MAIN_CUISSON_PORTE_PORTE_OUVERTE,
+		MICRO_ONDE_MAIN_CUISSON_PORTE_INIT_PORTE,
 		$NULLSTATE$
 	};
 	
@@ -244,17 +247,26 @@ public class Microwave implements IStatemachine, ITimed {
 			case MICRO_ONDE_MAIN_PUISSANCE_PORTE_PORTE_OUVERTE:
 				transitioned = micro_onde_main_Puissance_porte_Porte_Ouverte_react(transitioned);
 				break;
+			case MICRO_ONDE_MAIN_PUISSANCE_PORTE_INIT_PORTE:
+				transitioned = micro_onde_main_Puissance_porte_Init_Porte_react(transitioned);
+				break;
 			case MICRO_ONDE_MAIN_TIMER_PORTE_PORTE_FERMEE:
 				transitioned = micro_onde_main_Timer_porte_Porte_Fermee_react(transitioned);
 				break;
 			case MICRO_ONDE_MAIN_TIMER_PORTE_PORTE_OUVERTE:
 				transitioned = micro_onde_main_Timer_porte_Porte_Ouverte_react(transitioned);
 				break;
+			case MICRO_ONDE_MAIN_TIMER_PORTE_INIT_PORTE:
+				transitioned = micro_onde_main_Timer_porte_Init_Porte_react(transitioned);
+				break;
 			case MICRO_ONDE_MAIN_CUISSON_PORTE_PORTE_FERMEE:
 				transitioned = micro_onde_main_Cuisson_Porte_Porte_Fermee_react(transitioned);
 				break;
 			case MICRO_ONDE_MAIN_CUISSON_PORTE_PORTE_OUVERTE:
 				transitioned = micro_onde_main_Cuisson_Porte_Porte_Ouverte_react(transitioned);
+				break;
+			case MICRO_ONDE_MAIN_CUISSON_PORTE_INIT_PORTE:
+				transitioned = micro_onde_main_Cuisson_Porte_Init_Porte_react(transitioned);
 				break;
 			default:
 				break;
@@ -304,7 +316,7 @@ public class Microwave implements IStatemachine, ITimed {
 		switch (state) {
 		case MICRO_ONDE_MAIN_PUISSANCE:
 			return stateVector[0].ordinal() >= State.
-					MICRO_ONDE_MAIN_PUISSANCE.ordinal()&& stateVector[0].ordinal() <= State.MICRO_ONDE_MAIN_PUISSANCE_PORTE_PORTE_OUVERTE.ordinal();
+					MICRO_ONDE_MAIN_PUISSANCE.ordinal()&& stateVector[0].ordinal() <= State.MICRO_ONDE_MAIN_PUISSANCE_PORTE_INIT_PORTE.ordinal();
 		case MICRO_ONDE_MAIN_PUISSANCE_R1_INIT_PUISSANCE:
 			return stateVector[0] == State.MICRO_ONDE_MAIN_PUISSANCE_R1_INIT_PUISSANCE;
 		case MICRO_ONDE_MAIN_PUISSANCE_R1_PUISSANCE_LOW:
@@ -315,9 +327,11 @@ public class Microwave implements IStatemachine, ITimed {
 			return stateVector[1] == State.MICRO_ONDE_MAIN_PUISSANCE_PORTE_PORTE_FERMEE;
 		case MICRO_ONDE_MAIN_PUISSANCE_PORTE_PORTE_OUVERTE:
 			return stateVector[1] == State.MICRO_ONDE_MAIN_PUISSANCE_PORTE_PORTE_OUVERTE;
+		case MICRO_ONDE_MAIN_PUISSANCE_PORTE_INIT_PORTE:
+			return stateVector[1] == State.MICRO_ONDE_MAIN_PUISSANCE_PORTE_INIT_PORTE;
 		case MICRO_ONDE_MAIN_TIMER:
 			return stateVector[0].ordinal() >= State.
-					MICRO_ONDE_MAIN_TIMER.ordinal()&& stateVector[0].ordinal() <= State.MICRO_ONDE_MAIN_TIMER_PORTE_PORTE_OUVERTE.ordinal();
+					MICRO_ONDE_MAIN_TIMER.ordinal()&& stateVector[0].ordinal() <= State.MICRO_ONDE_MAIN_TIMER_PORTE_INIT_PORTE.ordinal();
 		case MICRO_ONDE_MAIN_TIMER_R2_INIT_TIMER:
 			return stateVector[0] == State.MICRO_ONDE_MAIN_TIMER_R2_INIT_TIMER;
 		case MICRO_ONDE_MAIN_TIMER_R2_TIMER_READY:
@@ -334,9 +348,11 @@ public class Microwave implements IStatemachine, ITimed {
 			return stateVector[1] == State.MICRO_ONDE_MAIN_TIMER_PORTE_PORTE_FERMEE;
 		case MICRO_ONDE_MAIN_TIMER_PORTE_PORTE_OUVERTE:
 			return stateVector[1] == State.MICRO_ONDE_MAIN_TIMER_PORTE_PORTE_OUVERTE;
+		case MICRO_ONDE_MAIN_TIMER_PORTE_INIT_PORTE:
+			return stateVector[1] == State.MICRO_ONDE_MAIN_TIMER_PORTE_INIT_PORTE;
 		case MICRO_ONDE_MAIN_CUISSON:
 			return stateVector[0].ordinal() >= State.
-					MICRO_ONDE_MAIN_CUISSON.ordinal()&& stateVector[0].ordinal() <= State.MICRO_ONDE_MAIN_CUISSON_PORTE_PORTE_OUVERTE.ordinal();
+					MICRO_ONDE_MAIN_CUISSON.ordinal()&& stateVector[0].ordinal() <= State.MICRO_ONDE_MAIN_CUISSON_PORTE_INIT_PORTE.ordinal();
 		case MICRO_ONDE_MAIN_CUISSON_R3_INIT_CUISSON:
 			return stateVector[0] == State.MICRO_ONDE_MAIN_CUISSON_R3_INIT_CUISSON;
 		case MICRO_ONDE_MAIN_CUISSON_R3_CUISSON_ON_GOING:
@@ -357,6 +373,8 @@ public class Microwave implements IStatemachine, ITimed {
 			return stateVector[1] == State.MICRO_ONDE_MAIN_CUISSON_PORTE_PORTE_FERMEE;
 		case MICRO_ONDE_MAIN_CUISSON_PORTE_PORTE_OUVERTE:
 			return stateVector[1] == State.MICRO_ONDE_MAIN_CUISSON_PORTE_PORTE_OUVERTE;
+		case MICRO_ONDE_MAIN_CUISSON_PORTE_INIT_PORTE:
+			return stateVector[1] == State.MICRO_ONDE_MAIN_CUISSON_PORTE_INIT_PORTE;
 		default:
 			return false;
 		}
@@ -787,6 +805,12 @@ public class Microwave implements IStatemachine, ITimed {
 		stateConfVectorPosition = 1;
 	}
 	
+	/* 'default' enter sequence for state Init Porte */
+	private void enterSequence_Micro_onde_main_Puissance_porte_Init_Porte_default() {
+		stateVector[1] = State.MICRO_ONDE_MAIN_PUISSANCE_PORTE_INIT_PORTE;
+		stateConfVectorPosition = 1;
+	}
+	
 	/* 'default' enter sequence for state Timer */
 	private void enterSequence_Micro_onde_main_Timer_default() {
 		enterSequence_Micro_onde_main_Timer_r2_default();
@@ -845,6 +869,12 @@ public class Microwave implements IStatemachine, ITimed {
 	private void enterSequence_Micro_onde_main_Timer_porte_Porte_Ouverte_default() {
 		entryAction_Micro_onde_main_Timer_porte_Porte_Ouverte();
 		stateVector[1] = State.MICRO_ONDE_MAIN_TIMER_PORTE_PORTE_OUVERTE;
+		stateConfVectorPosition = 1;
+	}
+	
+	/* 'default' enter sequence for state Init Porte */
+	private void enterSequence_Micro_onde_main_Timer_porte_Init_Porte_default() {
+		stateVector[1] = State.MICRO_ONDE_MAIN_TIMER_PORTE_INIT_PORTE;
 		stateConfVectorPosition = 1;
 	}
 	
@@ -922,6 +952,12 @@ public class Microwave implements IStatemachine, ITimed {
 		stateConfVectorPosition = 1;
 	}
 	
+	/* 'default' enter sequence for state Init Porte */
+	private void enterSequence_Micro_onde_main_Cuisson_Porte_Init_Porte_default() {
+		stateVector[1] = State.MICRO_ONDE_MAIN_CUISSON_PORTE_INIT_PORTE;
+		stateConfVectorPosition = 1;
+	}
+	
 	/* 'default' enter sequence for region Micro onde main */
 	private void enterSequence_Micro_onde_main_default() {
 		react_Micro_onde_main__entry_Default();
@@ -993,6 +1029,12 @@ public class Microwave implements IStatemachine, ITimed {
 		stateConfVectorPosition = 1;
 	}
 	
+	/* Default exit sequence for state Init Porte */
+	private void exitSequence_Micro_onde_main_Puissance_porte_Init_Porte() {
+		stateVector[1] = State.$NULLSTATE$;
+		stateConfVectorPosition = 1;
+	}
+	
 	/* Default exit sequence for state Timer */
 	private void exitSequence_Micro_onde_main_Timer() {
 		exitSequence_Micro_onde_main_Timer_r2();
@@ -1043,6 +1085,12 @@ public class Microwave implements IStatemachine, ITimed {
 	
 	/* Default exit sequence for state Porte Ouverte */
 	private void exitSequence_Micro_onde_main_Timer_porte_Porte_Ouverte() {
+		stateVector[1] = State.$NULLSTATE$;
+		stateConfVectorPosition = 1;
+	}
+	
+	/* Default exit sequence for state Init Porte */
+	private void exitSequence_Micro_onde_main_Timer_porte_Init_Porte() {
 		stateVector[1] = State.$NULLSTATE$;
 		stateConfVectorPosition = 1;
 	}
@@ -1117,6 +1165,12 @@ public class Microwave implements IStatemachine, ITimed {
 		stateConfVectorPosition = 1;
 	}
 	
+	/* Default exit sequence for state Init Porte */
+	private void exitSequence_Micro_onde_main_Cuisson_Porte_Init_Porte() {
+		stateVector[1] = State.$NULLSTATE$;
+		stateConfVectorPosition = 1;
+	}
+	
 	/* Default exit sequence for region Micro onde main */
 	private void exitSequence_Micro_onde_main() {
 		switch (stateVector[0]) {
@@ -1182,17 +1236,26 @@ public class Microwave implements IStatemachine, ITimed {
 		case MICRO_ONDE_MAIN_PUISSANCE_PORTE_PORTE_OUVERTE:
 			exitSequence_Micro_onde_main_Puissance_porte_Porte_Ouverte();
 			break;
+		case MICRO_ONDE_MAIN_PUISSANCE_PORTE_INIT_PORTE:
+			exitSequence_Micro_onde_main_Puissance_porte_Init_Porte();
+			break;
 		case MICRO_ONDE_MAIN_TIMER_PORTE_PORTE_FERMEE:
 			exitSequence_Micro_onde_main_Timer_porte_Porte_Fermee();
 			break;
 		case MICRO_ONDE_MAIN_TIMER_PORTE_PORTE_OUVERTE:
 			exitSequence_Micro_onde_main_Timer_porte_Porte_Ouverte();
 			break;
+		case MICRO_ONDE_MAIN_TIMER_PORTE_INIT_PORTE:
+			exitSequence_Micro_onde_main_Timer_porte_Init_Porte();
+			break;
 		case MICRO_ONDE_MAIN_CUISSON_PORTE_PORTE_FERMEE:
 			exitSequence_Micro_onde_main_Cuisson_Porte_Porte_Fermee();
 			break;
 		case MICRO_ONDE_MAIN_CUISSON_PORTE_PORTE_OUVERTE:
 			exitSequence_Micro_onde_main_Cuisson_Porte_Porte_Ouverte();
+			break;
+		case MICRO_ONDE_MAIN_CUISSON_PORTE_INIT_PORTE:
+			exitSequence_Micro_onde_main_Cuisson_Porte_Init_Porte();
 			break;
 		default:
 			break;
@@ -1224,6 +1287,9 @@ public class Microwave implements IStatemachine, ITimed {
 			break;
 		case MICRO_ONDE_MAIN_PUISSANCE_PORTE_PORTE_OUVERTE:
 			exitSequence_Micro_onde_main_Puissance_porte_Porte_Ouverte();
+			break;
+		case MICRO_ONDE_MAIN_PUISSANCE_PORTE_INIT_PORTE:
+			exitSequence_Micro_onde_main_Puissance_porte_Init_Porte();
 			break;
 		default:
 			break;
@@ -1264,6 +1330,9 @@ public class Microwave implements IStatemachine, ITimed {
 			break;
 		case MICRO_ONDE_MAIN_TIMER_PORTE_PORTE_OUVERTE:
 			exitSequence_Micro_onde_main_Timer_porte_Porte_Ouverte();
+			break;
+		case MICRO_ONDE_MAIN_TIMER_PORTE_INIT_PORTE:
+			exitSequence_Micro_onde_main_Timer_porte_Init_Porte();
 			break;
 		default:
 			break;
@@ -1311,6 +1380,9 @@ public class Microwave implements IStatemachine, ITimed {
 		case MICRO_ONDE_MAIN_CUISSON_PORTE_PORTE_OUVERTE:
 			exitSequence_Micro_onde_main_Cuisson_Porte_Porte_Ouverte();
 			break;
+		case MICRO_ONDE_MAIN_CUISSON_PORTE_INIT_PORTE:
+			exitSequence_Micro_onde_main_Cuisson_Porte_Init_Porte();
+			break;
 		default:
 			break;
 		}
@@ -1356,7 +1428,7 @@ public class Microwave implements IStatemachine, ITimed {
 	
 	/* Default react sequence for initial entry  */
 	private void react_Micro_onde_main_Puissance_porte__entry_Default() {
-		enterSequence_Micro_onde_main_Puissance_porte_Porte_Fermee_default();
+		enterSequence_Micro_onde_main_Puissance_porte_Init_Porte_default();
 	}
 	
 	/* Default react sequence for initial entry  */
@@ -1366,7 +1438,7 @@ public class Microwave implements IStatemachine, ITimed {
 	
 	/* Default react sequence for initial entry  */
 	private void react_Micro_onde_main_Timer_porte__entry_Default() {
-		enterSequence_Micro_onde_main_Timer_porte_Porte_Fermee_default();
+		enterSequence_Micro_onde_main_Timer_porte_Init_Porte_default();
 	}
 	
 	/* Default react sequence for initial entry  */
@@ -1381,7 +1453,7 @@ public class Microwave implements IStatemachine, ITimed {
 	
 	/* Default react sequence for initial entry  */
 	private void react_Micro_onde_main_Cuisson_Porte__entry_Default() {
-		enterSequence_Micro_onde_main_Cuisson_Porte_Porte_Fermee_default();
+		enterSequence_Micro_onde_main_Cuisson_Porte_Init_Porte_default();
 	}
 	
 	private long react(long transitioned_before) {
@@ -1481,6 +1553,25 @@ public class Microwave implements IStatemachine, ITimed {
 				exitSequence_Micro_onde_main_Puissance_porte_Porte_Ouverte();
 				enterSequence_Micro_onde_main_Puissance_porte_Porte_Fermee_default();
 				transitioned_after = 1;
+			}
+		}
+		return transitioned_after;
+	}
+	
+	private long micro_onde_main_Puissance_porte_Init_Porte_react(long transitioned_before) {
+		long transitioned_after = transitioned_before;
+		
+		if (transitioned_after<1) {
+			if (open) {
+				exitSequence_Micro_onde_main_Puissance_porte_Init_Porte();
+				enterSequence_Micro_onde_main_Puissance_porte_Porte_Ouverte_default();
+				transitioned_after = 1;
+			} else {
+				if (close) {
+					exitSequence_Micro_onde_main_Puissance_porte_Init_Porte();
+					enterSequence_Micro_onde_main_Puissance_porte_Porte_Fermee_default();
+					transitioned_after = 1;
+				}
 			}
 		}
 		return transitioned_after;
@@ -1608,6 +1699,25 @@ public class Microwave implements IStatemachine, ITimed {
 				exitSequence_Micro_onde_main_Timer_porte_Porte_Ouverte();
 				enterSequence_Micro_onde_main_Timer_porte_Porte_Fermee_default();
 				transitioned_after = 1;
+			}
+		}
+		return transitioned_after;
+	}
+	
+	private long micro_onde_main_Timer_porte_Init_Porte_react(long transitioned_before) {
+		long transitioned_after = transitioned_before;
+		
+		if (transitioned_after<1) {
+			if (open) {
+				exitSequence_Micro_onde_main_Timer_porte_Init_Porte();
+				enterSequence_Micro_onde_main_Timer_porte_Porte_Ouverte_default();
+				transitioned_after = 1;
+			} else {
+				if (close) {
+					exitSequence_Micro_onde_main_Timer_porte_Init_Porte();
+					enterSequence_Micro_onde_main_Timer_porte_Porte_Fermee_default();
+					transitioned_after = 1;
+				}
 			}
 		}
 		return transitioned_after;
@@ -1761,6 +1871,25 @@ public class Microwave implements IStatemachine, ITimed {
 				exitSequence_Micro_onde_main_Cuisson_Porte_Porte_Ouverte();
 				enterSequence_Micro_onde_main_Cuisson_Porte_Porte_Fermee_default();
 				transitioned_after = 1;
+			}
+		}
+		return transitioned_after;
+	}
+	
+	private long micro_onde_main_Cuisson_Porte_Init_Porte_react(long transitioned_before) {
+		long transitioned_after = transitioned_before;
+		
+		if (transitioned_after<1) {
+			if (open) {
+				exitSequence_Micro_onde_main_Cuisson_Porte_Init_Porte();
+				enterSequence_Micro_onde_main_Cuisson_Porte_Porte_Ouverte_default();
+				transitioned_after = 1;
+			} else {
+				if (close) {
+					exitSequence_Micro_onde_main_Cuisson_Porte_Init_Porte();
+					enterSequence_Micro_onde_main_Cuisson_Porte_Porte_Fermee_default();
+					transitioned_after = 1;
+				}
 			}
 		}
 		return transitioned_after;

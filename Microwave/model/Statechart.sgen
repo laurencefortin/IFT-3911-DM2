@@ -8,8 +8,13 @@ GeneratorModel for yakindu::java {
 
 		feature Outlet {
 			targetProject = PROJECT
-			targetFolder = FOLDER
+			targetFolder = "src"
 			libraryTargetFolder = "src"
+		}
+		feature GeneralFeatures{
+			RuntimeService = true
+			TimerService = true
+			
 		}
 	}
 }

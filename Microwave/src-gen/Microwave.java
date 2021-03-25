@@ -620,11 +620,15 @@ public class Microwave implements IStatemachine, ITimed {
 	/* Entry action for state 'Puissance Low'. */
 	private void entryAction_Micro_onde_main_Puissance_r1_Puissance_Low() {
 		operationCallback.display("Low");
+		
+		setPower(1);
 	}
 	
 	/* Entry action for state 'Puissance High'. */
 	private void entryAction_Micro_onde_main_Puissance_r1_Puissance_High() {
 		operationCallback.display("High");
+		
+		setPower(2);
 	}
 	
 	/* Entry action for state 'Porte Fermee'. */

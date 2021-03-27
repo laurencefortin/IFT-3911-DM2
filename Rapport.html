@@ -272,13 +272,14 @@
          <strong>Context Paquebot</strong><br>
          inv: Paquebot.allInstances()->forAll(e1,e2|e1<>e2 implies checkNoConflict(e1.ListCroisiere,e2.ListCroisiere))<br>
       </p>
-      <h2>Identification des modules réutilisables</h2>
-      <p>Les modules réutilisables de notre conception sont toutes nos  <strong>(Institution, Voyage, Compagnie, Vehicule, Reservation, Confirmation, Gestionnaire)</strong>, ainsi que toutes nos éumerations <strong>(typeSection, TypeCabine)</strong>
-         <br> La raison pourquoi nos interfaces sont toutes réutilisables est simple, leur conception est tellement simple qu'elle peut servire à plein de fonctions différentes
-      <p>
+           <h2>Identification des modules réutilisables</h2>
+      <P>Les modules réutilisables de notre conception sont toutes nos  <strong>(Institution, Voyage, Compagnie, Vehicule, Reservation, Confirmation, Gestionnaire)</strong>, ainsi que toutes nos éumerations <strong>(typeSection, TypeCabine)</strong>
+        <br> Les modules sont réutilisables puisqu'ils modélisent de manière simple les entités utilisés dans ce devoir.  Par exemple, si on voudrait ajouter un nouveau type de voyage (spatial, rêvons!), nous aurions déjà notre base (interface du Voyage) et on aurait simplement à rajouter ce qu'il manque dans une classe qui l'implémente.  Ce type d'exemple est applicable à toutes les interfaces, ce qui facilite évidemment la réutilisation.<p>
       <h1>Qualité du design</h1>
       <h2>Discussion du couplage et de la cohésion des modules </h2>
-      <p> Nous avons eaasyer de faire une conception peu figide afin d'affeblir le couplage, c'est pourquoi.. </p>
+      <p> Notre 1ere itération du diagramme de classes contenaient beaucoup de problème de couplage, plus précisément, beaucoup de classes qui auraient pu être implémentées en tant qu'interface </p>
+	  <p> Notre 2eme itération règle la majorité de ces problèmes, ajoutant des interfaces à pratiquement toutes les classes qui pouvaient en avoir.  Cela réduit énormément le couplage, puisque, par exemple, notre 1er diagramme contenait des véhicules individuels pour chaque type de voyage, alors que maintenant, un voyage est associé à un véhicule, une nouvelle interface ajoutée lors de notre 2eme itération.  Il en est pareil pour les réservations, confirmations, compagnies, etc</p>
+	  <p> La cohésion fut également améliorée par l'ajout de gestionnaires individuels qui se chargent d'effectuer les opérations des admins sur les différents modules.  Notre 1ere itération déléguait plutôt toutes ces taches au système, augmentant ainsi énormément le couplage tout en réduisant la cohésion : pourquoi est-ce que le système effectuerait toutes les modifications, alors qu'une modification de compagnie est très différente d'une modification de voyage par exemple ?  L'ajout de modules de différents pour chaque type d'entité aide à éliminer ce problème.</p>
       <h2> Discussion du fardeau des classes </h2>
       <p> </p>
       <h2>Graphe IA et justification</h2>

@@ -1,0 +1,99 @@
+# Created Fri Mar 26 16:46:21 2021 by TINA version 3.6.0
+
+kts buffer
+21 nodes
+60 edges
+1 state property namespace(s)
+  S [w]: 6 properties: {Attente MTL} {Attente SUD} {Tunnel Voie Nord} ...
+1 transition property namespace(s)
+  E: 6 properties: {Arriver au tunnel - MTL} {Arriver au tunnel SUD} {Entrer Tunnel vers MTL} ...
+21 state property sets
+  21 over namespace S
+6 transition property sets
+  6 over namespace E
+
+state 0
+props {Attente MTL} {Attente SUD} {Voie disponible -> SUD}
+trans {Arriver au tunnel - MTL}/1 {Arriver au tunnel SUD}/2 {Entrer Tunnel vers SUD}/3
+
+state 1
+props {Attente MTL}*w {Attente SUD} {Voie disponible -> SUD}
+trans {Arriver au tunnel - MTL}/1 {Arriver au tunnel SUD}/4 {Entrer Tunnel vers SUD}/5
+
+state 2
+props {Attente MTL} {Attente SUD}*w {Voie disponible -> SUD}
+trans {Arriver au tunnel SUD}/2 {Arriver au tunnel - MTL}/4 {Entrer Tunnel vers SUD}/6
+
+state 3
+props {Attente SUD} {Tunnel Voie Sud}
+trans {Arriver au tunnel - MTL}/5 {Arriver au tunnel SUD}/6 {SUD sortir}/7
+
+state 4
+props {Attente MTL}*w {Attente SUD}*w {Voie disponible -> SUD}
+trans {Arriver au tunnel SUD}/4 {Arriver au tunnel - MTL}/4 {Entrer Tunnel vers SUD}/8
+
+state 5
+props {Attente MTL}*w {Attente SUD} {Tunnel Voie Sud}
+trans {Arriver au tunnel - MTL}/5 {Arriver au tunnel SUD}/8 {SUD sortir}/9
+
+state 6
+props {Attente SUD}*w {Tunnel Voie Sud}
+trans {Arriver au tunnel SUD}/6 {Arriver au tunnel - MTL}/8 {SUD sortir}/10
+
+state 7
+props {Attente SUD} {Voie disponible -> Nord}
+trans {Arriver au tunnel - MTL}/9 {Arriver au tunnel SUD}/10 {Entrer Tunnel vers MTL}/11
+
+state 8
+props {Attente MTL}*w {Attente SUD}*w {Tunnel Voie Sud}
+trans {Arriver au tunnel SUD}/8 {Arriver au tunnel - MTL}/8 {SUD sortir}/12
+
+state 9
+props {Attente MTL}*w {Attente SUD} {Voie disponible -> Nord}
+trans {Arriver au tunnel - MTL}/9 {Arriver au tunnel SUD}/12 {Entrer Tunnel vers MTL}/13
+
+state 10
+props {Attente SUD}*w {Voie disponible -> Nord}
+trans {Arriver au tunnel SUD}/10 {Arriver au tunnel - MTL}/12 {Entrer Tunnel vers MTL}/14
+
+state 11
+props {Tunnel Voie Nord}
+trans {Arriver au tunnel - MTL}/13 {Arriver au tunnel SUD}/14 {MTL Sortir}/15
+
+state 12
+props {Attente MTL}*w {Attente SUD}*w {Voie disponible -> Nord}
+trans {Arriver au tunnel SUD}/12 {Arriver au tunnel - MTL}/12 {Entrer Tunnel vers MTL}/16
+
+state 13
+props {Attente MTL}*w {Tunnel Voie Nord}
+trans {Arriver au tunnel - MTL}/13 {Arriver au tunnel SUD}/16 {MTL Sortir}/17
+
+state 14
+props {Attente SUD}*w {Tunnel Voie Nord}
+trans {Arriver au tunnel SUD}/14 {Arriver au tunnel - MTL}/16 {MTL Sortir}/18
+
+state 15
+props {Voie disponible -> SUD}
+trans {Arriver au tunnel - MTL}/17 {Arriver au tunnel SUD}/18
+
+state 16
+props {Attente MTL}*w {Attente SUD}*w {Tunnel Voie Nord}
+trans {MTL Sortir}/4 {Arriver au tunnel SUD}/16 {Arriver au tunnel - MTL}/16
+
+state 17
+props {Attente MTL}*w {Voie disponible -> SUD}
+trans {Arriver au tunnel SUD}/4 {Arriver au tunnel - MTL}/17 {Entrer Tunnel vers SUD}/19
+
+state 18
+props {Attente SUD}*w {Voie disponible -> SUD}
+trans {Arriver au tunnel - MTL}/4 {Arriver au tunnel SUD}/18
+
+state 19
+props {Attente MTL}*w {Tunnel Voie Sud}
+trans {Arriver au tunnel SUD}/8 {Arriver au tunnel - MTL}/19 {SUD sortir}/20
+
+state 20
+props {Attente MTL}*w {Voie disponible -> Nord}
+trans {Arriver au tunnel SUD}/12 {Arriver au tunnel - MTL}/20
+
+

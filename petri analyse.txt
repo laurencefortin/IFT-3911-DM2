@@ -1,0 +1,10 @@
+-Conservation-
+M(Voie disponible -> Sud) + M(voie disponible -> nord) = 1
+
+Ainsi, comme j'ai un seul processeur, qui correspond à la lumière dans notre situation, une seule voiture peut etre dans le tunnel à la fois.
+
+-Graphe de couverture-
+À chaque transition d'une voiture à la sortie du tunnel, les places disponible s'interchangent, comme expliqué ci-dessus.
+Le graphe de couverture nous le confirme, jamais il n'y a d'état où les deux places Tunnels contiennent tous deux un jetons.
+Jamais il ne contiennent une voiture en même temps.
+De plus on remarque clairement dans le graphe que les deux transitions "sortir" activent la transition entrer de la voie opposée. Le processus est donc équitable, puisqu'une voiture qui passe dans une voie, provoque le fait qu'une voiture passera dans l'autre. Ainsi, la famine est impossible dans ce réseau.

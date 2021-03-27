@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pnml>
+    <net>
+        <token id="Default" red="0" green="0" blue="0"/>
+        <place id="Attendre SUD">
+            <graphics>
+                <position x="700.0" y="139.0"/>
+            </graphics>
+            <name>
+                <value>P1</value>
+                <graphics>
+                    <offset x="52.0" y="-18.0"/>
+                </graphics>
+            </name>
+            <capacity>
+                <value>0</value>
+            </capacity>
+            <initialMarking>
+                <graphics>
+                    <offset x="0.0" y="0.0"/>
+                </graphics>
+                <value>Default,1</value>
+            </initialMarking>
+        </place>
+        <place id="Voie Disponible -&gt; SUD">
+            <graphics>
+                <position x="520.0" y="252.0"/>
+            </graphics>
+            <name>
+                <value>P5</value>
+                <graphics>
+                    <offset x="-5.0" y="35.0"/>
+                </graphics>
+            </name>
+            <capacity>
+                <value>0</value>
+            </capacity>
+            <initialMarking>
+                <graphics>
+                    <offset x="0.0" y="0.0"/>
+                </graphics>
+                <value>Default,1</value>
+            </initialMarking>
+        </place>
+        <place id="Voie Disponible -&gt; Nord">
+            <graphics>
+                <position x="520.0" y="202.0"/>
+            </graphics>
+            <name>
+                <value>P4</value>
+                <graphics>
+                    <offset x="157.0" y="7.0"/>
+                </graphics>
+            </name>
+            <capacity>
+                <value>0</value>
+            </capacity>
+            <initialMarking>
+                <graphics>
+                    <offset x="0.0" y="0.0"/>
+                </graphics>
+                <value></value>
+            </initialMarking>
+        </place>
+        <place id="Tunnel Voie sud">
+            <graphics>
+                <position x="724.0" y="310.0"/>
+            </graphics>
+            <name>
+                <value>P3</value>
+                <graphics>
+                    <offset x="37.0" y="46.0"/>
+                </graphics>
+            </name>
+            <capacity>
+                <value>0</value>
+            </capacity>
+            <initialMarking>
+                <graphics>
+                    <offset x="0.0" y="0.0"/>
+                </graphics>
+                <value></value>
+            </initialMarking>
+        </place>
+        <place id="Attendre MTL">
+            <graphics>
+                <position x="371.0" y="313.0"/>
+            </graphics>
+            <name>
+                <value>P2</value>
+                <graphics>
+                    <offset x="40.0" y="50.0"/>
+                </graphics>
+            </name>
+            <capacity>
+                <value>0</value>
+            </capacity>
+            <initialMarking>
+                <graphics>
+                    <offset x="0.0" y="0.0"/>
+                </graphics>
+                <value>Default,1</value>
+            </initialMarking>
+        </place>
+        <place id="Tunnel Voie Nord">
+            <graphics>
+                <position x="349.0" y="138.0"/>
+            </graphics>
+            <name>
+                <value>P0</value>
+                <graphics>
+                    <offset x="53.0" y="-19.0"/>
+                </graphics>
+            </name>
+            <capacity>
+                <value>0</value>
+            </capacity>
+            <initialMarking>
+                <graphics>
+                    <offset x="0.0" y="0.0"/>
+                </graphics>
+                <value></value>
+            </initialMarking>
+        </place>
+        <transition id="Arriver au tunnel - MTL">
+            <graphics>
+                <position x="216.0" y="312.0"/>
+            </graphics>
+            <name>
+                <value>T3</value>
+                <graphics>
+                    <offset x="43.0" y="41.0"/>
+                </graphics>
+            </name>
+            <infiniteServer>
+                <value>false</value>
+            </infiniteServer>
+            <timed>
+                <value>false</value>
+            </timed>
+            <priority>
+                <value>1</value>
+            </priority>
+            <orientation>
+                <value>0</value>
+            </orientation>
+            <rate>
+                <value>1</value>
+            </rate>
+        </transition>
+        <transition id="MTL Sortir">
+            <graphics>
+                <position x="210.0" y="130.0"/>
+            </graphics>
+            <name>
+                <value>T0</value>
+                <graphics>
+                    <offset x="-5.0" y="35.0"/>
+                </graphics>
+            </name>
+            <infiniteServer>
+                <value>false</value>
+            </infiniteServer>
+            <timed>
+                <value>false</value>
+            </timed>
+            <priority>
+                <value>1</value>
+            </priority>
+            <orientation>
+                <value>0</value>
+            </orientation>
+            <rate>
+                <value>1</value>
+            </rate>
+        </transition>
+        <transition id="Entrer tunnel vers MTL">
+            <graphics>
+                <position x="529.0" y="135.0"/>
+            </graphics>
+            <name>
+                <value>T1</value>
+                <graphics>
+                    <offset x="57.0" y="-17.0"/>
+                </graphics>
+            </name>
+            <infiniteServer>
+                <value>false</value>
+            </infiniteServer>
+            <timed>
+                <value>false</value>
+            </timed>
+            <priority>
+                <value>1</value>
+            </priority>
+            <orientation>
+                <value>0</value>
+            </orientation>
+            <rate>
+                <value>1</value>
+            </rate>
+        </transition>
+        <transition id="Arriver au tunnel - SUD">
+            <graphics>
+                <position x="888.0" y="136.0"/>
+            </graphics>
+            <name>
+                <value>T2</value>
+                <graphics>
+                    <offset x="62.0" y="-13.0"/>
+                </graphics>
+            </name>
+            <infiniteServer>
+                <value>false</value>
+            </infiniteServer>
+            <timed>
+                <value>false</value>
+            </timed>
+            <priority>
+                <value>1</value>
+            </priority>
+            <orientation>
+                <value>0</value>
+            </orientation>
+            <rate>
+                <value>1</value>
+            </rate>
+        </transition>
+        <transition id="SUD sortir">
+            <graphics>
+                <position x="911.0" y="308.0"/>
+            </graphics>
+            <name>
+                <value>T5</value>
+                <graphics>
+                    <offset x="30.0" y="43.0"/>
+                </graphics>
+            </name>
+            <infiniteServer>
+                <value>false</value>
+            </infiniteServer>
+            <timed>
+                <value>false</value>
+            </timed>
+            <priority>
+                <value>1</value>
+            </priority>
+            <orientation>
+                <value>0</value>
+            </orientation>
+            <rate>
+                <value>1</value>
+            </rate>
+        </transition>
+        <transition id="Entrer Tunnel Vers SUD">
+            <graphics>
+                <position x="532.0" y="311.0"/>
+            </graphics>
+            <name>
+                <value>T4</value>
+                <graphics>
+                    <offset x="59.0" y="52.0"/>
+                </graphics>
+            </name>
+            <infiniteServer>
+                <value>false</value>
+            </infiniteServer>
+            <timed>
+                <value>false</value>
+            </timed>
+            <priority>
+                <value>1</value>
+            </priority>
+            <orientation>
+                <value>0</value>
+            </orientation>
+            <rate>
+                <value>1</value>
+            </rate>
+        </transition>
+        <arc id="T1 TO P0" source="Entrer tunnel vers MTL" target="Tunnel Voie Nord">
+            <arcpath id="" x="529.0" y="150.0" curvePoint="false"/>
+            <arcpath id="" x="379.0" y="153.0" curvePoint="false"/>
+            <type value="normal"/>
+            <inscription>
+                <value>Default,1</value>
+            </inscription>
+        </arc>
+        <arc id="T5 TO P4" source="SUD sortir" target="Voie Disponible -&gt; Nord">
+            <arcpath id="" x="911.0" y="323.0" curvePoint="false"/>
+            <arcpath id="" x="549.0" y="221.0" curvePoint="false"/>
+            <type value="normal"/>
+            <inscription>
+                <value>Default,1</value>
+            </inscription>
+        </arc>
+        <arc id="T3 TO P2" source="Arriver au tunnel - MTL" target="Attendre MTL">
+            <arcpath id="" x="226.0" y="327.0" curvePoint="false"/>
+            <arcpath id="" x="371.0" y="328.0" curvePoint="false"/>
+            <type value="normal"/>
+            <inscription>
+                <value>Default,1</value>
+            </inscription>
+        </arc>
+        <arc id="T0 TO P5" source="MTL Sortir" target="Voie Disponible -&gt; SUD">
+            <arcpath id="" x="220.0" y="145.0" curvePoint="false"/>
+            <arcpath id="" x="521.0" y="262.0" curvePoint="false"/>
+            <type value="normal"/>
+            <inscription>
+                <value>Default,1</value>
+            </inscription>
+        </arc>
+        <arc id="T4 TO P3" source="Entrer Tunnel Vers SUD" target="Tunnel Voie sud">
+            <arcpath id="" x="542.0" y="326.0" curvePoint="false"/>
+            <arcpath id="" x="724.0" y="325.0" curvePoint="false"/>
+            <type value="normal"/>
+            <inscription>
+                <value>Default,1</value>
+            </inscription>
+        </arc>
+        <arc id="T2 TO P1" source="Arriver au tunnel - SUD" target="Attendre SUD">
+            <arcpath id="" x="888.0" y="151.0" curvePoint="false"/>
+            <arcpath id="" x="730.0" y="154.0" curvePoint="false"/>
+            <type value="normal"/>
+            <inscription>
+                <value>Default,1</value>
+            </inscription>
+        </arc>
+        <arc id="P3 TO T5" source="Tunnel Voie sud" target="SUD sortir">
+            <arcpath id="" x="754.0" y="325.0" curvePoint="false"/>
+            <arcpath id="" x="911.0" y="323.0" curvePoint="false"/>
+            <type value="normal"/>
+            <inscription>
+                <value>Default,1</value>
+            </inscription>
+        </arc>
+        <arc id="P2 TO T4" source="Attendre MTL" target="Entrer Tunnel Vers SUD">
+            <arcpath id="" x="401.0" y="328.0" curvePoint="false"/>
+            <arcpath id="" x="532.0" y="326.0" curvePoint="false"/>
+            <type value="normal"/>
+            <inscription>
+                <value>Default,1</value>
+            </inscription>
+        </arc>
+        <arc id="P4 TO T1" source="Voie Disponible -&gt; Nord" target="Entrer tunnel vers MTL">
+            <arcpath id="" x="535.0" y="202.0" curvePoint="false"/>
+            <arcpath id="" x="534.0" y="165.0" curvePoint="false"/>
+            <type value="normal"/>
+            <inscription>
+                <value>Default,1</value>
+            </inscription>
+        </arc>
+        <arc id="P0 TO T0" source="Tunnel Voie Nord" target="MTL Sortir">
+            <arcpath id="" x="349.0" y="152.0" curvePoint="false"/>
+            <arcpath id="" x="220.0" y="145.0" curvePoint="false"/>
+            <type value="normal"/>
+            <inscription>
+                <value>Default,1</value>
+            </inscription>
+        </arc>
+        <arc id="P1 TO T1" source="Attendre SUD" target="Entrer tunnel vers MTL">
+            <arcpath id="" x="700.0" y="154.0" curvePoint="false"/>
+            <arcpath id="" x="539.0" y="150.0" curvePoint="false"/>
+            <type value="normal"/>
+            <inscription>
+                <value>Default,1</value>
+            </inscription>
+        </arc>
+        <arc id="P5 TO T4" source="Voie Disponible -&gt; SUD" target="Entrer Tunnel Vers SUD">
+            <arcpath id="" x="536.0" y="282.0" curvePoint="false"/>
+            <arcpath id="" x="537.0" y="311.0" curvePoint="false"/>
+            <type value="normal"/>
+            <inscription>
+                <value>Default,1</value>
+            </inscription>
+        </arc>
+    </net>
+</pnml>

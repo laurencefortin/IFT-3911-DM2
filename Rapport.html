@@ -191,15 +191,25 @@
       <h2>
          Modélisation du réseau de Pétri
       </h2>
-      <img src="./Microwave/images/.png"  alt="petri" /><br><br>
-      Voici un <a href="./Microwave/src/microwave.java">lien</a> vers le fichier pipe du réseau de pétri.
+      <img src="petri.png"  alt="petri" /><br><br>
+      Voici un <a href="petri_final.xml">lien</a> vers le fichier pipe du réseau de pétri.
       <h2>Analyse du réseau de Pétri</h2>
+      <p><strong>-Conservation-</strong><br>
+M(Voie disponible -> Sud) + M(voie disponible -> nord) = 1<br><br>
+
+Ainsi, comme j'ai un seul processeur, qui correspond à la lumière dans notre situation, une seule voiture peut etre dans le tunnel à la fois.
+<br><br>
+<strong>-Graphe de couverture-</strong><br>
+À chaque transition d'une voiture à la sortie du tunnel, les places disponible s'interchangent, comme expliqué ci-dessus.
+Le graphe de couverture nous le confirme, jamais il n'y a d'état où les deux places Tunnels contiennent tous deux un jetons.
+Jamais il ne contiennent une voiture en même temps.<br>
+De plus on remarque clairement dans le graphe que les deux transitions "sortir" activent la transition entrer de la voie opposée. Le processus est donc équitable, puisqu'une voiture qui passe dans une voie, provoque le fait qu'une voiture passera dans l'autre. Ainsi, la famine est impossible dans ce réseau.</p>
       <h1>Statechart</h1>
       <h2>
          Modélisation du Statechart
       </h2>
       <img src="microwave.png"  alt="Statechart"  width="1300" height="1200"/><br><br>
-      Voici un <a href="./Microwave/model/microwave.cst">lien</a> vers le fichier cst du Statechart.
+      Voici un <a href="microwave.cst">lien</a> vers le fichier cst du Statechart.
       <h2> Génération du code et application fonctionnelle </h2>
       <h1>Design logiciel</h1>
       <h2> Révision du diagramme de classe</h2>
@@ -272,21 +282,22 @@
          <strong>Context Paquebot</strong><br>
          inv: Paquebot.allInstances()->forAll(e1,e2|e1<>e2 implies checkNoConflict(e1.ListCroisiere,e2.ListCroisiere))<br>
       </p>
-           <h2>Identification des modules réutilisables</h2>
+      <h2>Identification des modules réutilisables</h2>
       <P>Les modules réutilisables de notre conception sont toutes nos  <strong>(Institution, Voyage, Compagnie, Vehicule, Reservation, Confirmation, Gestionnaire)</strong>, ainsi que toutes nos éumerations <strong>(typeSection, TypeCabine)</strong>
-        <br> Les modules sont réutilisables puisqu'ils modélisent de manière simple les entités utilisés dans ce devoir.  Par exemple, si on voudrait ajouter un nouveau type de voyage (spatial, rêvons!), nous aurions déjà notre base (interface du Voyage) et on aurait simplement à rajouter ce qu'il manque dans une classe qui l'implémente.  Ce type d'exemple est applicable à toutes les interfaces, ce qui facilite évidemment la réutilisation.<p>
+         <br> Les modules sont réutilisables puisqu'ils modélisent de manière simple les entités utilisés dans ce devoir.  Par exemple, si on voudrait ajouter un nouveau type de voyage (spatial, rêvons!), nous aurions déjà notre base (interface du Voyage) et on aurait simplement à rajouter ce qu'il manque dans une classe qui l'implémente.  Ce type d'exemple est applicable à toutes les interfaces, ce qui facilite évidemment la réutilisation.
+      <p>
       <h1>Qualité du design</h1>
       <h2>Discussion du couplage et de la cohésion des modules </h2>
       <p> Notre 1ere itération du diagramme de classes contenaient beaucoup de problème de couplage, plus précisément, beaucoup de classes qui auraient pu être implémentées en tant qu'interface </p>
-	  <p> Notre 2eme itération règle la majorité de ces problèmes, ajoutant des interfaces à pratiquement toutes les classes qui pouvaient en avoir.  Cela réduit énormément le couplage, puisque, par exemple, notre 1er diagramme contenait des véhicules individuels pour chaque type de voyage, alors que maintenant, un voyage est associé à un véhicule, une nouvelle interface ajoutée lors de notre 2eme itération.  Il en est pareil pour les réservations, confirmations, compagnies, etc</p>
-	  <p> La cohésion fut également améliorée par l'ajout de gestionnaires individuels qui se chargent d'effectuer les opérations des admins sur les différents modules.  Notre 1ere itération déléguait plutôt toutes ces taches au système, augmentant ainsi énormément le couplage tout en réduisant la cohésion : pourquoi est-ce que le système effectuerait toutes les modifications, alors qu'une modification de compagnie est très différente d'une modification de voyage par exemple ?  L'ajout de modules de différents pour chaque type d'entité aide à éliminer ce problème.</p>
+      <p> Notre 2eme itération règle la majorité de ces problèmes, ajoutant des interfaces à pratiquement toutes les classes qui pouvaient en avoir.  Cela réduit énormément le couplage, puisque, par exemple, notre 1er diagramme contenait des véhicules individuels pour chaque type de voyage, alors que maintenant, un voyage est associé à un véhicule, une nouvelle interface ajoutée lors de notre 2eme itération.  Il en est pareil pour les réservations, confirmations, compagnies, etc</p>
+      <p> La cohésion fut également améliorée par l'ajout de gestionnaires individuels qui se chargent d'effectuer les opérations des admins sur les différents modules.  Notre 1ere itération déléguait plutôt toutes ces taches au système, augmentant ainsi énormément le couplage tout en réduisant la cohésion : pourquoi est-ce que le système effectuerait toutes les modifications, alors qu'une modification de compagnie est très différente d'une modification de voyage par exemple ?  L'ajout de modules de différents pour chaque type d'entité aide à éliminer ce problème.</p>
       <h2> Discussion du fardeau des classes </h2>
       <p> </p>
       <h2>Graphe IA et justification</h2>
       <p> </p>
       <h2>Justification de l'application des principes de conception</h2>
-      <p> ISP : Nous avons rajouté plusieurs interfaces pour des entités similaires, mais nous avons gardé les interfaces avec les attributs les plus de bases possible.  Donc, chaque classe qui implémente une interface utilisera toujours les attributs/méthodes de cette interface, car les interfaces n'ont que les attributs/méthodes communes aux classes qui les implémentent.</p>
-	  <p> CRP : Nous avons ajouter des gestionnaires qui gèrent les opérations individuelles sur chacunes des entités.  Avant, le système gèrait tout, alors que la modification d'un voyage ,par exemple, n'est pas du tout la même que celle d'une compagnie.  Avec plusieurs gestionnaires, on favorise la délégation plutôt que l'héritage. </p>
-	  <p> </p>
+      <p> <strong>ISP :</strong> Nous avons rajouté plusieurs interfaces pour des entités similaires, mais nous avons gardé les interfaces avec les attributs les plus de bases possible.  Donc, chaque classe qui implémente une interface utilisera toujours les attributs/méthodes de cette interface, car les interfaces n'ont que les attributs/méthodes communes aux classes qui les implémentent.</p>
+	  <p><strong> CRP : </strong>Nous avons ajouter des gestionnaires qui gèrent les opérations individuelles sur chacunes des entités.  Avant, le système gèrait tout, alors que la modification d'un voyage ,par exemple, n'est pas du tout la même que celle d'une compagnie.  Avec plusieurs gestionnaires, on favorise la délégation plutôt que l'héritage. </p>
+	  <p> <strong>DIP :</strong> Nos classes concretes changent souvent, mais les interfaces ne changent pratiquement pas.Par exemple, dans notre diagramme de clsse, notre premiere iteration notre Systeme faisait la majorité des operations. Dans la seconde version, nous avons ajouter des interfaces qui sont maintenant en charge de la majorité des opérations. Le systeme est simplement utiliser pour appeler le main alors qu'il etait un blob dans notre premiere version. </p>
    </body>
 </html>

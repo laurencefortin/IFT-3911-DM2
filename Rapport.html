@@ -285,6 +285,8 @@
       <h2>Graphe IA et justification</h2>
       <p> </p>
       <h2>Justification de l'application des principes de conception</h2>
-      <p> </p>
+      <p> ISP : Nous avons rajouté plusieurs interfaces pour des entités similaires, mais nous avons gardé les interfaces avec les attributs les plus de bases possible.  Donc, chaque classe qui implémente une interface utilisera toujours les attributs/méthodes de cette interface, car les interfaces n'ont que les attributs/méthodes communes aux classes qui les implémentent.</p>
+	  <p> CRP : Nous avons ajouter des gestionnaires qui gèrent les opérations individuelles sur chacunes des entités.  Avant, le système gèrait tout, alors que la modification d'un voyage ,par exemple, n'est pas du tout la même que celle d'une compagnie.  Avec plusieurs gestionnaires, on favorise la délégation plutôt que l'héritage. </p>
+	  <p> </p>
    </body>
 </html>

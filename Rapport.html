@@ -250,37 +250,45 @@ De plus on remarque clairement dans le graphe que les deux transitions "sortir" 
       <img src="./RevueTP1/images/paquets.jpg"  alt="paquetdiagrame"  width="800" height="500"/><br><br>
       Voici un <a href="./RevueTP1/paquets.vpp">lien</a> vers le fichier vpp du diagramme.
       <h2>Révision des contraintes OCL</h2>
-      <h3> Contraintes du DM1</h3>
-      <p> <strong>Context Compagnie</strong><br>
-         inv: Compagnie.allInstances()->forAll(a1,a2|a1<>a2 implies a1.id <> a2.id)<br>
-         inv: self.id.Length() < 6 <br><br>
-         <strong>Context Voyage</strong><br>
-         inv: self.DateDepart < self.DateArrivee<br>
-         inv: self.HeureDepart < self.HeureArrivee<br><br>
-         <strong>Context Vol</strong><br>
-         inv: Vol.allInstances()->forAll(b1,b2|b1<>b2 implies b1.id <> b2.id)<br>
-         inv: self.EndroitDepart <> self.EndroitArrivee<br><br>
-         <strong>Context Avion</strong><br>
-         inv: self.rangee <= 100<br>
-         inv: self.colonne <= 10<br><br>
-         <strong>Context Port </strong><br>
-         inv: Port.allInstances()->forAll(c1,c2|c1<>c2 implies c1.id <> c2.id)<br><br>
-         <strong>Context Siege</strong><br>
-         inv: Siege.allInstances()->forAll(c1,c2|c1.section = c2.section implies c1.taux = c2.taux)<br>
-         inv: Siege.paid  and Siege.contains(Reservation) implies siege.contains(Confirmation)<br>
-         Context Siege::reserver(a : client)<br>
-         pre: self.contains(Reservation) -> excludes(a)<br>
-         post : reserver(a) implies self.contains(Reservation)<br>
-         Context siege::confirmer(a : client)<br>
-         pre: not(self.contains(Reservation ) and self.Reservation.Contains(a)) -> excludes(a)<br>
-         post : self.contains(Confirmation) and self.Confirmation.Contains(a)<br><br>
-         <strong>Context Gare </strong><br>
-         inv: Gare.allInstances()->forAll(d1,d2|d1<>d2 implies d1.id <> d2.id)<br><br>
-         <strong>Context Croisiere</strong><br>
-         inv: (self.DateArrivee - self.DateDepart) < 21<br>
-         inv: self.ArraylistPort.Last() = self.EndroitDepart<br><br>
-         <strong>Context Paquebot</strong><br>
-         inv: Paquebot.allInstances()->forAll(e1,e2|e1<>e2 implies checkNoConflict(e1.ListCroisiere,e2.ListCroisiere))<br>
+
+<p> <strong>Context Compagnie</strong><br>
+inv: self.id.Length() < 6<br>
+context Compagnie::id : String<br>
+init:Compagnie::uniqueID() <br><br>
+
+<strong>Context Voyage</strong><br>
+inv: self.DateDepart < self.DateArrivee<br>
+inv: self.HeureDepart < self.HeureArrivee<br><br>
+<strong>Context Vol</strong><br>
+inv: self.EndroitDepart <> self.EndroitArrivee<br>
+context Vol::id : String <br>
+init:Compagnie::uniqueID()<br><br>
+<strong>Context Avion</strong><br>
+inv: self.rangee <= 100<br>
+inv: self.colonne <= 10<br><br>
+<strong>Context Port </strong><br>
+inv: self.id.Length() < 6<br>
+context Port::id : String <br>
+init:Port::uniqueID()<br><br>
+<strong>Context Siege</strong><br>
+inv: Siege.allInstances()->forAll(c1,c2|c1.section = c2.section implies c1.taux = c2.taux)<br>
+inv: Siege.paid and Siege.contains(Reservation) implies siege.contains(Confirmation)<br>
+context Siege::reserver(a : client)<br>
+pre: self.contains(Reservation) -> excludes(a)<br>
+post : reserver(a) implies self.contains(Reservation)<br>
+context siege::confirmer(a : client)<br>
+pre: not(self.contains(Reservation ) and self.Reservation.Contains(a)) -> excludes(a)<br>
+post : self.contains(Confirmation) and self.Confirmation.Contains(a)<br><br>
+<strong>Context Gare </strong><br>
+inv: self.id.Length() < 3<br>
+context Gare::id : String <br>
+init:Gare::uniqueID()<br><br>
+<strong>Context Croisiere</strong><br>
+inv: (self.DateArrivee - self.DateDepart) < 21<br>
+inv: self.ArraylistPort.Last() = self.EndroitDepartbr><br><br>
+<strong>Context Paquebot</strong><br>
+inv: Paquebot.allInstances()->forAll(e1,e2|e1<>e2 implies e1.DateArrivee <> e2.DateArrivee and e1.DateDepart <> e2.DateDepart<br>
+
       </p>
       <h2>Identification des modules réutilisables</h2>
       <P>Les modules réutilisables de notre conception sont toutes nos  <strong>(Institution, Voyage, Compagnie, Vehicule, Reservation, Confirmation, Gestionnaire)</strong>, ainsi que toutes nos éumerations <strong>(typeSection, TypeCabine)</strong>

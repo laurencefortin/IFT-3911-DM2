@@ -1,0 +1,46 @@
+Contraintes OCL
+context Compagnie
+inv: self.id.Length() < 6
+context Compagnie::id : String 
+init:Compagnie::uniqueID()
+
+context Voyage
+inv: self.DateDepart < self.DateArrivee
+inv: self.HeureDepart < self.HeureArrivee
+
+context Vol
+inv: self.EndroitDepart <> self.EndroitArrivee
+context Vol::id : String 
+init:Compagnie::uniqueID()
+
+context Avion
+inv: self.rangee <= 100
+inv: self.colonne <= 10
+
+context Port
+inv: self.id.Length() < 6
+context Port::id : String 
+init:Port::uniqueID()
+
+
+context Siege
+inv: Siege.allInstances()->forAll(c1,c2|c1.section = c2.section implies c1.taux = c2.taux)
+inv: Siege.paid and Siege.contains(Reservation) implies siege.contains(Confirmation)
+context Siege::reserver(a : client)
+pre: self.contains(Reservation) -> excludes(a)
+post : reserver(a) implies self.contains(Reservation)
+context siege::confirmer(a : client)
+pre: not(self.contains(Reservation ) and self.Reservation.Contains(a)) -> excludes(a)
+post : self.contains(Confirmation) and self.Confirmation.Contains(a)
+
+context Gare
+inv: self.id.Length() < 3
+context Gare::id : String 
+init:Gare::uniqueID()
+
+context Croisiere
+inv: (self.DateArrivee - self.DateDepart) < 21
+inv: self.ArraylistPort.Last() = self.EndroitDepart
+
+context Paquebot
+inv: Paquebot.allInstances()->forAll(e1,e2|e1<>e2 implies e1.DateArrivee <> e2.DateArrivee and e1.DateDepart <> e2.DateDepart

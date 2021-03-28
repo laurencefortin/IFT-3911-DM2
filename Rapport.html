@@ -300,9 +300,22 @@ inv: Paquebot.allInstances()->forAll(e1,e2|e1<>e2 implies e1.DateArrivee <> e2.D
       <p> Notre 2eme itération règle la majorité de ces problèmes, ajoutant des interfaces à pratiquement toutes les classes qui pouvaient en avoir.  Cela réduit énormément le couplage, puisque, par exemple, notre 1er diagramme contenait des véhicules individuels pour chaque type de voyage, alors que maintenant, un voyage est associé à un véhicule, une nouvelle interface ajoutée lors de notre 2eme itération.  Il en est pareil pour les réservations, confirmations, compagnies, etc</p>
       <p> La cohésion fut également améliorée par l'ajout de gestionnaires individuels qui se chargent d'effectuer les opérations des admins sur les différents modules.  Notre 1ere itération déléguait plutôt toutes ces taches au système, augmentant ainsi énormément le couplage tout en réduisant la cohésion : pourquoi est-ce que le système effectuerait toutes les modifications, alors qu'une modification de compagnie est très différente d'une modification de voyage par exemple ?  L'ajout de modules de différents pour chaque type d'entité aide à éliminer ce problème.</p>
       <h2> Discussion du fardeau des classes </h2>
-      <p> </p>
+      <p> 
+	  En regardant le diagramme de classe complété plus haut, on peut en déduire les conclusions suivantes par rapport au fardeau:<br>
+	  Nos classes ont un fardeau bien équilibré.<br>
+	  Autant celles qui sont proches de classes concrètes ont peu de dépendance, donc sont près de la fondation.<br>
+		Celles qui sont plus abstraite, donc les gestionnaires et autres constructions relative au système, on un fardeau plus élevés car leur fonctionnement dépend de l'implémentation des classes concrètes.<br>
+	  </p>
       <h2>Graphe IA et justification</h2>
-      <p> </p>
+	  <img src="./Design/Graphe_IA.png""  alt="GRAPHEIA"  width="500" height="500"/><br><br>
+	  
+      <p> Pour construire le graphe IA, il faut tout d'abord calculer l'abstraction de nos paquet A = nA/nC <br>
+	  donc GUI = 0/3=0, Compagnie = 1/4, Voyage = 2/6, Gestionnaire = 1/7, Véhicule = 1/5, Institution = 0/3 = 0 , Confirmation = 2/5.<br>
+	  Ensuite nous avons calculé les I. GUI = 1, Compagnie = 1/2, Voyage = 1/3, Gestionnaire = 1/6, Véhicule = 2/3, Institution = 1/2 , Confirmation = 2/3.<br>
+	  On peut remarquer une tendance vers le bas, ce qui semble indiqué une bonne conception. Par contre, remarquons que si on enlève le point GUI, la tendance est plûtot à la hausse.<br>
+	  En effet, nos classes sont en majorité plus abstraites que instables. Il faudrait donc, dans une révision ultérieure, effectuer des changements pour réduire notre abstraction. <br>
+	  Par contre, ce changement était trop majeur pour être effectué ici.<br>
+	  Une telle révision aurait essentiellement nécessité de recommencer à zéro.</p>
       <h2>Justification de l'application des principes de conception</h2>
       <p> <strong>ISP :</strong> Nous avons rajouté plusieurs interfaces pour des entités similaires, mais nous avons gardé les interfaces avec les attributs les plus de bases possible.  Donc, chaque classe qui implémente une interface utilisera toujours les attributs/méthodes de cette interface, car les interfaces n'ont que les attributs/méthodes communes aux classes qui les implémentent.</p>
 	  <p><strong> CRP : </strong>Nous avons ajouter des gestionnaires qui gèrent les opérations individuelles sur chacunes des entités.  Avant, le système gèrait tout, alors que la modification d'un voyage ,par exemple, n'est pas du tout la même que celle d'une compagnie.  Avec plusieurs gestionnaires, on favorise la délégation plutôt que l'héritage. </p>
